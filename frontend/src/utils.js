@@ -11,5 +11,5 @@ export const handleError =(msg)=>{
     })
     }
 
-    export const APIUrl = process.env.REACT_APP_URL ||  'http://localhost:8085';
+    export const APIUrl = process.env.REACT_APP_URL ;
     
