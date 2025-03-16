@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { handleError, handleSucess } from '../utils';
+import {APIUrl, handleError, handleSucess } from '../utils';
 import { ToastContainer } from 'react-toastify';
 import ExpenseTable from './ExpenseTable';
 import ExpenseDetails from './ExpenseDetails';
@@ -47,7 +47,7 @@ navigate('/login');
 
     const fetchExpenses = async()=>{
         try{
-const url = "http://localhost:8085/expenses";
+const url = `${APIUrl}/expenses`;
 const token = localStorage.getItem('token');
     
 const response = await fetch(url,
@@ -75,7 +75,7 @@ setExpenses(result.data);
 
     const addExpenses = async(data)=>{
         try{
-const url = "http://localhost:8085/expenses/add";
+const url = `${APIUrl}/expenses/add`;
 const token = localStorage.getItem('token');
     
 const response = await fetch(url,
@@ -109,7 +109,7 @@ setExpenses(result.data);
 
 const handleDeleteExpense =  async(expenseId)=>{
     try{
-        const url = `http://localhost:8085/expenses/${expenseId}`;
+        const url = `${APIUrl}/expenses/${expenseId}`;
         const token = localStorage.getItem('token');
             
         const response = await fetch(url,
